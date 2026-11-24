@@ -8,6 +8,7 @@ delimited sections in README.md without external dependencies.
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -113,29 +114,116 @@ def build_snake_section(repo_full_name: str, has_output_branch: bool) -> str:
     )
 
 
+def compute_metrics(
+    user: dict[str, Any],
+    repos: list[dict[str, Any]],
+) -> tuple[int, int, int, str]:
+    """Compute public repos, total stars, followers, and top languages."""
+    owned_sources = [r for r in repos if not r.get("fork", False)]
+    public_repos = int(user.get("public_repos", 0))
+    total_stars = sum(int(r.get("stargazers_count", 0)) for r in owned_sources)
+    followers = int(user.get("followers", 0))
+    lang_counts = Counter(
+        r["language"] for r in owned_sources if r.get("language")
+    )
+    top_langs = (
+        ", ".join(lang for lang, _ in lang_counts.most_common(5))
+        or "Terraform • HCL • PowerShell • Python"
+    )
+    return public_repos, total_stars, followers, top_langs
+
+
 def build_stats_section(
     user: dict[str, Any],
     repos: list[dict[str, Any]],
     synced_at: datetime,
 ) -> str:
     """Build the markdown table summarizing GitHub profile metrics."""
-    owned_sources = [r for r in repos if not r.get("fork", False)]
-    total_stars = sum(int(r.get("stargazers_count", 0)) for r in owned_sources)
-    lang_counts = Counter(
-        r["language"] for r in owned_sources if r.get("language")
-    )
-    top_langs = ", ".join(lang for lang, _ in lang_counts.most_common(5)) or "Terraform, HCL, PowerShell, Python"
+    public_repos, total_stars, followers, top_langs = compute_metrics(user, repos)
 
     rows = [
         "| Metric | Value |",
         "| :--- | :--- |",
-        f"| Public Repositories | **{user.get('public_repos', 0)}** |",
+        f"| Public Repositories | **{public_repos}** |",
         f"| Total Stars Earned | **{total_stars}** |",
-        f"| Followers | **{user.get('followers', 0)}** |",
+        f"| Followers | **{followers}** |",
         f"| Top Languages | {top_langs} |",
         f"| Last Auto-Synced (UTC) | `{synced_at.strftime('%Y-%m-%d %H:%M UTC')}` |",
     ]
     return "\n".join(rows)
+
+
+def build_live_metrics_svg(
+    username: str,
+    user: dict[str, Any],
+    repos: list[dict[str, Any]],
+    synced_at: datetime,
+) -> str:
+    """Render an animated SVG telemetry card for GitHub profile metrics."""
+    public_repos, total_stars, followers, top_langs = compute_metrics(user, repos)
+    safe_user = html.escape(username)
+    safe_langs = html.escape(top_langs[:48] + ("..." if len(top_langs) > 48 else ""))
+    synced_label = html.escape(synced_at.strftime("%Y-%m-%d %H:%M UTC"))
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 180" width="100%" role="img" aria-label="Live GitHub Telemetry Metrics for {safe_user}">
+  <defs>
+    <linearGradient id="mBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0078D4" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+    <style>
+      .hdr {{ font: 700 12px 'Cascadia Code', Consolas, monospace; fill: #38BDF8; letter-spacing: 1px; }}
+      .lbl {{ font: 600 12px 'Segoe UI', Roboto, Arial, sans-serif; fill: #94A3B8; }}
+      .val {{ font: 800 28px 'Segoe UI', Roboto, Arial, sans-serif; fill: #F8FAFC; }}
+      .sub {{ font: 600 13px 'Cascadia Code', Consolas, monospace; fill: #E2E8F0; }}
+      .pulse {{ animation: ledPulse 1.8s ease-in-out infinite; }}
+      .sweep {{ animation: sweepBar 3.6s ease-in-out infinite; }}
+      @keyframes ledPulse {{ 0%, 100% {{ opacity: 1; }} 50% {{ opacity: 0.25; }} }}
+      @keyframes sweepBar {{ 0% {{ width: 40px; }} 50% {{ width: 174px; }} 100% {{ width: 40px; }} }}
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="176" rx="14" fill="url(#mBg)" stroke="#1E3A8A" stroke-width="1.5" />
+  <circle class="pulse" cx="28" cy="26" r="5" fill="#22C55E" />
+  <text x="42" y="30" class="hdr">GITHUB LIVE TELEMETRY • @{safe_user} • SYNCED {synced_label}</text>
+
+  <g transform="translate(26, 52)">
+    <rect x="0" y="0" width="210" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">PUBLIC REPOSITORIES</text>
+    <text x="18" y="68" class="val">{public_repos}</text>
+    <rect x="18" y="84" width="174" height="4" rx="2" fill="#1E293B" />
+    <rect class="sweep" x="18" y="84" width="120" height="4" rx="2" fill="url(#barGrad)" />
+  </g>
+
+  <g transform="translate(254, 52)">
+    <rect x="0" y="0" width="210" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">TOTAL STARS EARNED</text>
+    <text x="18" y="68" class="val">{total_stars}</text>
+    <rect x="18" y="84" width="174" height="4" rx="2" fill="#1E293B" />
+    <rect x="18" y="84" width="130" height="4" rx="2" fill="#F59E0B" />
+  </g>
+
+  <g transform="translate(482, 52)">
+    <rect x="0" y="0" width="210" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">FOLLOWERS</text>
+    <text x="18" y="68" class="val">{followers}</text>
+    <rect x="18" y="84" width="174" height="4" rx="2" fill="#1E293B" />
+    <rect x="18" y="84" width="145" height="4" rx="2" fill="#22C55E" />
+  </g>
+
+  <g transform="translate(710, 52)">
+    <rect x="0" y="0" width="464" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">TOP LANGUAGES &amp; STACK</text>
+    <text x="18" y="64" class="sub">{safe_langs}</text>
+    <text x="18" y="88" class="lbl" fill="#38BDF8">10+ Years Experience • Azure CAF • Terraform • DevSecOps</text>
+  </g>
+</svg>
+"""
 
 
 def build_repos_section(
@@ -292,16 +380,31 @@ def update_readme(
         build_activity_section(events),
     )
 
-    if updated == original:
-        print("README.md is already up to date.")
+    metrics_svg_path = readme_path.resolve().parent / "assets" / "live-metrics.svg"
+    new_metrics_svg = build_live_metrics_svg(username, user, repos, now_utc)
+    old_metrics_svg = (
+        metrics_svg_path.read_text(encoding="utf-8")
+        if metrics_svg_path.exists()
+        else ""
+    )
+
+    readme_changed = updated != original
+    svg_changed = new_metrics_svg != old_metrics_svg
+
+    if not readme_changed and not svg_changed:
+        print("README.md and live-metrics.svg are already up to date.")
         return False
 
     if dry_run:
-        print("Dry-run: README.md would be updated.")
+        print("Dry-run: profile artifacts would be updated.")
         return True
 
-    readme_path.write_text(updated, encoding="utf-8", newline="\n")
-    print("README.md updated successfully.")
+    if readme_changed:
+        readme_path.write_text(updated, encoding="utf-8", newline="\n")
+    if svg_changed:
+        metrics_svg_path.parent.mkdir(parents=True, exist_ok=True)
+        metrics_svg_path.write_text(new_metrics_svg, encoding="utf-8", newline="\n")
+    print("Profile README.md and live-metrics.svg updated successfully.")
     return True
 
 

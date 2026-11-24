@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" role="img" aria-label="Swapnil Thakare - Principal Cloud &amp; DevSecOps Architect">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14" />
+      <stop offset="50%" stop-color="#0D1526" />
+      <stop offset="100%" stop-color="#091C32" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0078D4" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0" />
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="1" stroke-opacity="0.45" />
+    </pattern>
+    <style>
+      .title { font: 800 44px 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; fill: #F8FAFC; letter-spacing: 0.5px; }
+      .subtitle { font: 600 20px 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; fill: #38BDF8; }
+      .tagline { font: 400 15px 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; fill: #94A3B8; }
+      .chip-text { font: 600 12px 'Cascadia Code', 'Fira Code', Consolas, monospace; fill: #E2E8F0; }
+      .node-label { font: 700 11px 'Cascadia Code', 'Fira Code', Consolas, monospace; fill: #BAE6FD; text-anchor: middle; }
+      .pulse-ring { transform-box: fill-box; transform-origin: center; animation: pulseRing 3s ease-out infinite; }
+      .float-slow { animation: floatY 5s ease-in-out infinite; }
+      .float-fast { animation: floatY 3.8s ease-in-out infinite; }
+      .scanline { animation: scanX 4.5s linear infinite; }
+      .blink { animation: blinkDot 1.6s ease-in-out infinite; }
+      @keyframes pulseRing {
+        0% { transform: scale(0.9); opacity: 0.85; }
+        70% { transform: scale(1.6); opacity: 0; }
+        100% { transform: scale(1.6); opacity: 0; }
+      }
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes scanX {
+        0% { transform: translateX(-350px); }
+        100% { transform: translateX(1250px); }
+      }
+      @keyframes blinkDot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.25; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background & Subtle Grid -->
+  <rect x="2" y="2" width="1196" height="316" rx="18" fill="url(#bgGrad)" stroke="url(#accentGrad)" stroke-width="2" />
+  <rect x="2" y="2" width="1196" height="316" rx="18" fill="url(#grid)" />
+
+  <!-- Animated Top Scanner Beam -->
+  <g clip-path="inset(2px round 18px)">
+    <rect class="scanline" x="0" y="2" width="320" height="3" fill="url(#glowGrad)" />
+  </g>
+
+  <!-- Left Content: Status Pill, Name, Role, Chips -->
+  <g transform="translate(56, 56)">
+    <rect x="0" y="0" width="372" height="30" rx="15" fill="#0F172A" stroke="#1E3A8A" stroke-width="1.2" />
+    <circle class="blink" cx="18" cy="15" r="5" fill="#22C55E" filter="url(#softGlow)" />
+    <text x="32" y="19" class="chip-text" fill="#86EFAC">LIVE • 10+ YEARS ENTERPRISE CLOUD &amp; DEVSECOPS</text>
+
+    <text x="0" y="82" class="title">Swapnil Thakare</text>
+    <text x="0" y="116" class="subtitle">Principal / Senior Cloud &amp; DevSecOps Architect</text>
+    <text x="0" y="148" class="tagline">Azure Landing Zones (CAF) • Terraform IaC • 100+ Workload Migrations • Zero Trust &amp; FinOps</text>
+
+    <!-- Animated Tech Pills -->
+    <g transform="translate(0, 174)">
+      <rect x="0" y="0" width="122" height="32" rx="8" fill="#0B2545" stroke="#0078D4" stroke-width="1.2" />
+      <text x="61" y="20" class="chip-text" text-anchor="middle">☁️ Microsoft Azure</text>
+
+      <rect x="134" y="0" width="126" height="32" rx="8" fill="#1E1438" stroke="#7B42BC" stroke-width="1.2" />
+      <text x="197" y="20" class="chip-text" text-anchor="middle">⚙️ Terraform IaC</text>
+
+      <rect x="272" y="0" width="122" height="32" rx="8" fill="#0E2925" stroke="#10B981" stroke-width="1.2" />
+      <text x="333" y="20" class="chip-text" text-anchor="middle">🛡️ DevSecOps CI</text>
+
+      <rect x="406" y="0" width="114" height="32" rx="8" fill="#271B0C" stroke="#F59E0B" stroke-width="1.2" />
+      <text x="463" y="20" class="chip-text" text-anchor="middle">📊 FinOps &amp; DR</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Animated Cloud Topology Constellation -->
+  <g transform="translate(770, 34)">
+    <!-- Connection Paths -->
+    <path id="p1" d="M 180 126 L 60 54" stroke="#1E40AF" stroke-width="2" stroke-dasharray="5 5" fill="none">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
+    </path>
+    <path id="p2" d="M 180 126 L 310 54" stroke="#1E40AF" stroke-width="2" stroke-dasharray="5 5" fill="none">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
+    </path>
+    <path id="p3" d="M 180 126 L 60 202" stroke="#5B21B6" stroke-width="2" stroke-dasharray="5 5" fill="none">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
+    </path>
+    <path id="p4" d="M 180 126 L 310 202" stroke="#065F46" stroke-width="2" stroke-dasharray="5 5" fill="none">
+      <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1.5s" repeatCount="indefinite" />
+    </path>
+
+    <!-- Moving Data Packets -->
+    <circle r="4" fill="#38BDF8" filter="url(#softGlow)">
+      <animateMotion dur="2.2s" repeatCount="indefinite" path="M 180 126 L 60 54" />
+    </circle>
+    <circle r="4" fill="#38BDF8" filter="url(#softGlow)">
+      <animateMotion dur="2.6s" repeatCount="indefinite" path="M 180 126 L 310 54" />
+    </circle>
+    <circle r="4" fill="#A78BFA" filter="url(#softGlow)">
+      <animateMotion dur="2.4s" repeatCount="indefinite" path="M 180 126 L 60 202" />
+    </circle>
+    <circle r="4" fill="#34D399" filter="url(#softGlow)">
+      <animateMotion dur="2.0s" repeatCount="indefinite" path="M 180 126 L 310 202" />
+    </circle>
+
+    <!-- Central Hub Node -->
+    <circle class="pulse-ring" cx="180" cy="126" r="42" fill="none" stroke="#38BDF8" stroke-width="2" />
+    <circle cx="180" cy="126" r="40" fill="#0F172A" stroke="url(#accentGrad)" stroke-width="2.5" filter="url(#softGlow)" />
+    <text x="180" y="122" class="node-label" fill="#F8FAFC">HUB VNET</text>
+    <text x="180" y="138" class="node-label" fill="#38BDF8">FIREWALL</text>
+
+    <!-- Spoke Nodes -->
+    <g class="float-slow">
+      <rect x="8" y="30" width="104" height="44" rx="10" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5" />
+      <text x="60" y="49" class="node-label">ENTRA ID</text>
+      <text x="60" y="64" class="node-label" fill="#94A3B8">PIM &amp; RBAC</text>
+    </g>
+
+    <g class="float-fast">
+      <rect x="258" y="30" width="104" height="44" rx="10" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5" />
+      <text x="310" y="49" class="node-label">PROD SPOKE</text>
+      <text x="310" y="64" class="node-label" fill="#94A3B8">100+ APPS</text>
+    </g>
+
+    <g class="float-fast">
+      <rect x="8" y="180" width="104" height="44" rx="10" fill="#0F172A" stroke="#8B5CF6" stroke-width="1.5" />
+      <text x="60" y="199" class="node-label">TERRAFORM</text>
+      <text x="60" y="214" class="node-label" fill="#C4B5FD">DRIFT CHECK</text>
+    </g>
+
+    <g class="float-slow">
+      <rect x="258" y="180" width="104" height="44" rx="10" fill="#0F172A" stroke="#10B981" stroke-width="1.5" />
+      <text x="310" y="199" class="node-label">DEVSECOPS</text>
+      <text x="310" y="214" class="node-label" fill="#6EE7B7">ZERO TRUST</text>
+    </g>
+  </g>
+</svg>

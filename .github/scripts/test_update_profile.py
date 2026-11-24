@@ -112,6 +112,15 @@ class UpdateProfileTests(unittest.TestCase):
         self.assertIn("<picture>", enabled)
         self.assertIn("github-contribution-grid-snake-dark.svg", enabled)
 
+    def test_build_live_metrics_svg_escapes_xml(self) -> None:
+        user = {"public_repos": 5, "followers": 12}
+        repos = [{"fork": False, "stargazers_count": 3, "language": "C# & HCL"}]
+        synced = datetime(2026, 11, 25, 0, 0, tzinfo=timezone.utc)
+        svg = up.build_live_metrics_svg("sw<test>", user, repos, synced)
+        self.assertIn("sw&lt;test&gt;", svg)
+        self.assertIn("C# &amp; HCL", svg)
+        self.assertIn("<svg", svg)
+
     def test_scan_for_secrets_detects_token_pattern(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             sample = Path(tmp) / "leak.txt"

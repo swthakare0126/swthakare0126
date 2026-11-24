@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" width="100%" role="img" aria-label="Animated Azure Wave Footer">
+  <defs>
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0078D4" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.7" />
+    </linearGradient>
+    <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0.35" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#waveGrad2)">
+    <animate attributeName="d" dur="7s" repeatCount="indefinite"
+      values="M0,45 C300,95 900,5 1200,55 L1200,120 L0,120 Z;
+              M0,65 C350,10 850,95 1200,40 L1200,120 L0,120 Z;
+              M0,45 C300,95 900,5 1200,55 L1200,120 L0,120 Z" />
+  </path>
+  <path fill="url(#waveGrad1)">
+    <animate attributeName="d" dur="5s" repeatCount="indefinite"
+      values="M0,65 C320,20 880,100 1200,55 L1200,120 L0,120 Z;
+              M0,50 C360,100 840,20 1200,70 L1200,120 L0,120 Z;
+              M0,65 C320,20 880,100 1200,55 L1200,120 L0,120 Z" />
+  </path>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" role="img" aria-label="Animated Enterprise Hub and Spoke Cloud Architecture">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14" />
+      <stop offset="100%" stop-color="#0D192B" />
+    </linearGradient>
+    <filter id="glowBlue" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <style>
+      .h { font: 700 14px 'Segoe UI', Roboto, Arial, sans-serif; fill: #F8FAFC; text-anchor: middle; }
+      .s { font: 500 11px 'Cascadia Code', Consolas, monospace; fill: #94A3B8; text-anchor: middle; }
+      .tag { font: 700 11px 'Cascadia Code', Consolas, monospace; fill: #38BDF8; text-anchor: middle; }
+      .flow-line { stroke-dasharray: 7 6; animation: dashMove 1.4s linear infinite; }
+      .hub-pulse { transform-box: fill-box; transform-origin: center; animation: hubPulse 2.8s ease-in-out infinite; }
+      @keyframes dashMove {
+        to { stroke-dashoffset: -26; }
+      }
+      @keyframes hubPulse {
+        0%, 100% { stroke-opacity: 0.65; }
+        50% { stroke-opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="296" rx="16" fill="url(#archBg)" stroke="#1E3A8A" stroke-width="1.5" />
+  <text x="600" y="32" class="tag">LIVE TRAFFIC &amp; GOVERNANCE FLOW — ENTERPRISE HUB-AND-SPOKE ON MICROSOFT AZURE</text>
+
+  <!-- Animated Connections -->
+  <path class="flow-line" d="M 220 154 L 410 154" stroke="#38BDF8" stroke-width="2.5" fill="none" />
+  <path class="flow-line" d="M 740 120 L 900 90" stroke="#22C55E" stroke-width="2.5" fill="none" />
+  <path class="flow-line" d="M 740 188 L 900 218" stroke="#A78BFA" stroke-width="2.5" fill="none" />
+
+  <!-- Moving Packets -->
+  <circle r="5" fill="#38BDF8" filter="url(#glowBlue)">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 220 154 L 410 154" />
+  </circle>
+  <circle r="5" fill="#22C55E" filter="url(#glowBlue)">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 740 120 L 900 90" />
+  </circle>
+  <circle r="5" fill="#A78BFA" filter="url(#glowBlue)">
+    <animateMotion dur="2.1s" repeatCount="indefinite" path="M 740 188 L 900 218" />
+  </circle>
+
+  <!-- On-Premises Node -->
+  <rect x="36" y="104" width="184" height="100" rx="12" fill="#0F172A" stroke="#64748B" stroke-width="1.5" />
+  <text x="128" y="138" class="h">On-Premises DC</text>
+  <text x="128" y="160" class="s">100+ Workloads</text>
+  <text x="128" y="180" class="tag">ExpressRoute / VPN</text>
+
+  <!-- Hub VNet Box -->
+  <rect class="hub-pulse" x="410" y="64" width="330" height="184" rx="16" fill="#0B1B34" stroke="#0078D4" stroke-width="2.5" />
+  <text x="575" y="90" class="tag">HUB VNET (CENTRAL INSPECTION)</text>
+  <rect x="434" y="106" width="282" height="54" rx="10" fill="#0F172A" stroke="#38BDF8" stroke-width="1.2" />
+  <text x="575" y="130" class="h">Azure Firewall Premium / NVA</text>
+  <text x="575" y="148" class="s">UDR 0.0.0.0/0 • TLS Inspection • WAF</text>
+
+  <rect x="434" y="174" width="134" height="54" rx="10" fill="#0F172A" stroke="#1D4ED8" stroke-width="1.2" />
+  <text x="501" y="198" class="h">GatewaySubnet</text>
+  <text x="501" y="215" class="s">ER / S2S Tunnel</text>
+
+  <rect x="582" y="174" width="134" height="54" rx="10" fill="#0F172A" stroke="#1D4ED8" stroke-width="1.2" />
+  <text x="649" y="198" class="h">Private DNS</text>
+  <text x="649" y="215" class="s">PaaS Resolution</text>
+
+  <!-- Spoke 1 -->
+  <rect x="900" y="48" width="264" height="86" rx="12" fill="#0F172A" stroke="#22C55E" stroke-width="1.5" />
+  <text x="1032" y="78" class="h">Spoke 1: App Landing Zone</text>
+  <text x="1032" y="98" class="s">Dev / UAT / Prod • VMSS • Private Endpoints</text>
+  <text x="1032" y="118" class="tag" fill="#4ADE80">NSGs • ASGs • CMK • ASR</text>
+
+  <!-- Spoke 2 -->
+  <rect x="900" y="170" width="264" height="86" rx="12" fill="#0F172A" stroke="#A78BFA" stroke-width="1.5" />
+  <text x="1032" y="200" class="h">Spoke 2: Shared &amp; DevSecOps</text>
+  <text x="1032" y="220" class="s">CI/CD Runners • Bastion • AMA / Log Analytics</text>
+  <text x="1032" y="240" class="tag" fill="#C4B5FD">PIM • Azure Policy • FinOps</text>
+</svg>

@@ -1,15 +1,18 @@
 <div align="center">
 
-# Hi, I'm Swapnil Thakare 👋
-### Principal / Senior Cloud & DevSecOps Architect • 10+ Years Experience
+<img src="assets/hero-banner.svg" alt="Swapnil Thakare - Principal Cloud &amp; DevSecOps Architect" width="100%" />
 
-**Microsoft Azure • Enterprise Landing Zones (CAF) • Terraform IaC • DevSecOps • Cloud Migration (100+ Workloads) • FinOps & Governance**
+<br/><br/>
 
 [![GitHub](https://img.shields.io/badge/GitHub-swthakare0126-181717?style=for-the-badge&logo=github)](https://github.com/swthakare0126)
 [![Azure](https://img.shields.io/badge/Microsoft_Azure-Cloud_Architecture-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](#enterprise-architecture-blueprints)
 [![Terraform](https://img.shields.io/badge/Terraform-IaC_Automation-7B42BC?style=for-the-badge&logo=terraform&logoColor=white)](#terraform-landing-zone--devsecops-automation)
 [![DevSecOps](https://img.shields.io/badge/DevSecOps-Zero_Trust_%26_CI%2FCD-0A66C2?style=for-the-badge&logo=githubactions&logoColor=white)](#multi-layered-defense-in-depth-security)
 [![Experience](https://img.shields.io/badge/Experience-10%2B_Years-2EA44F?style=for-the-badge)](#the-senior-mindset-business--architecture-alignment)
+
+<br/><br/>
+
+<img src="assets/terminal-animation.svg" alt="Animated DevSecOps &amp; Terraform CI/CD Terminal" width="100%" />
 
 </div>
 
@@ -63,6 +66,12 @@ flowchart TD
 ---
 
 ## 🏛️ Enterprise Architecture Blueprints
+
+<div align="center">
+  <img src="assets/cloud-architecture-animated.svg" alt="Animated Azure Hub-and-Spoke Traffic &amp; Governance Flow" width="100%" />
+</div>
+
+<br/>
 
 <details open>
 <summary><strong>1. Real-World Scenario: 100+ Application Enterprise Migration & 10 Quality Pillars</strong></summary>
@@ -244,6 +253,13 @@ flowchart LR
 <!-- END_SECTION:snake -->
 
 ### 📊 Profile Metrics
+
+<div align="center">
+  <img src="assets/live-metrics.svg" alt="Live GitHub Telemetry Card" width="100%" />
+</div>
+
+<br/>
+
 <!-- START_SECTION:stats -->
 | Metric | Value |
 | :--- | :--- |
@@ -272,5 +288,9 @@ _Recent public activity will be automatically populated on the next scheduled or
 [![GitHub Profile](https://img.shields.io/badge/Follow_on_GitHub-@swthakare0126-181717?style=for-the-badge&logo=github)](https://github.com/swthakare0126)
 
 <sub>⚡ Automated & validated via GitHub Actions • Built with DevSecOps principles</sub>
+
+<br/><br/>
+
+<img src="assets/footer-wave.svg" alt="Animated Azure Wave Footer" width="100%" />
 
 </div>

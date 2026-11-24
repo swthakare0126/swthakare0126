@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" width="100%" role="img" aria-label="Animated DevSecOps and Terraform Pipeline Terminal">
+  <defs>
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0F1C" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <style>
+      .bar-title { font: 600 13px 'Cascadia Code', 'Fira Code', Consolas, monospace; fill: #94A3B8; text-anchor: middle; }
+      .cmd { font: 500 15px 'Cascadia Code', 'Fira Code', Consolas, monospace; fill: #E2E8F0; }
+      .prompt { fill: #38BDF8; font-weight: 700; }
+      .ok { fill: #22C55E; font-weight: 700; }
+      .info { fill: #A78BFA; }
+      .warn { fill: #FBBF24; }
+      .line1 { opacity: 0; animation: fadeCycle 10s infinite 0.2s; }
+      .line2 { opacity: 0; animation: fadeCycle 10s infinite 1.2s; }
+      .line3 { opacity: 0; animation: fadeCycle 10s infinite 2.4s; }
+      .line4 { opacity: 0; animation: fadeCycle 10s infinite 3.6s; }
+      .line5 { opacity: 0; animation: fadeCycle 10s infinite 4.8s; }
+      .line6 { opacity: 0; animation: fadeCycle 10s infinite 6.0s; }
+      .cursor { animation: cursorBlink 1s step-end infinite; }
+      @keyframes fadeCycle {
+        0% { opacity: 0; }
+        6% { opacity: 1; }
+        90% { opacity: 1; }
+        97%, 100% { opacity: 0; }
+      }
+      @keyframes cursorBlink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="246" rx="14" fill="url(#termBg)" stroke="#1E293B" stroke-width="2" />
+  <path d="M 2 16 Q 2 2 16 2 L 1184 2 Q 1198 2 1198 16 L 1198 38 L 2 38 Z" fill="#161F33" />
+  <circle cx="26" cy="20" r="6" fill="#EF4444" />
+  <circle cx="48" cy="20" r="6" fill="#F59E0B" />
+  <circle cx="70" cy="20" r="6" fill="#22C55E" />
+  <text x="600" y="25" class="bar-title">swthakare0126@azure-landing-zone:~/iac-platform (main)</text>
+
+  <g transform="translate(28, 72)">
+    <text x="0" y="0" class="cmd line1"><tspan class="prompt">❯</tspan> ./run-devsecops-gate.sh --env prod --scope enterprise-caf</text>
+    <text x="0" y="30" class="cmd line2"><tspan class="ok">[✔ PASS]</tspan> Format &amp; Lint: terraform fmt -check &amp;&amp; tflint --recursive</text>
+    <text x="0" y="60" class="cmd line3"><tspan class="ok">[✔ PASS]</tspan> Security &amp; Secrets: gitleaks • checkov • tfsec • trivy (0 critical)</text>
+    <text x="0" y="90" class="cmd line4"><tspan class="info">[✔ PLAN]</tspan> Hub-Spoke + Private Endpoints + Azure Policy (CIS/MCSB) + Infracost</text>
+    <text x="0" y="120" class="cmd line5"><tspan class="warn">[⚡ SYNC]</tspan> 100+ Workloads Migrated • Nightly Drift Detection &amp; FinOps Active</text>
+    <text x="0" y="150" class="cmd line6"><tspan class="prompt">❯</tspan> status: ready for architecture, leadership &amp; cloud transformation <tspan class="cursor" fill="#38BDF8">█</tspan></text>
+  </g>
+</svg>

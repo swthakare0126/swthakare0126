@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 180" width="100%" role="img" aria-label="Live GitHub Telemetry Metrics for swthakare0126">
+  <defs>
+    <linearGradient id="mBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B14" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0078D4" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+    <style>
+      .hdr { font: 700 12px 'Cascadia Code', Consolas, monospace; fill: #38BDF8; letter-spacing: 1px; }
+      .lbl { font: 600 12px 'Segoe UI', Roboto, Arial, sans-serif; fill: #94A3B8; }
+      .val { font: 800 28px 'Segoe UI', Roboto, Arial, sans-serif; fill: #F8FAFC; }
+      .sub { font: 600 13px 'Cascadia Code', Consolas, monospace; fill: #E2E8F0; }
+      .pulse { animation: ledPulse 1.8s ease-in-out infinite; }
+      .sweep { animation: sweepBar 3.6s ease-in-out infinite; }
+      @keyframes ledPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+      @keyframes sweepBar { 0% { width: 40px; } 50% { width: 174px; } 100% { width: 40px; } }
+    </style>
+  </defs>
+
+  <rect x="2" y="2" width="1196" height="176" rx="14" fill="url(#mBg)" stroke="#1E3A8A" stroke-width="1.5" />
+  <circle class="pulse" cx="28" cy="26" r="5" fill="#22C55E" />
+  <text x="42" y="30" class="hdr">GITHUB LIVE TELEMETRY • @swthakare0126 • AUTO-SYNC READY</text>
+
+  <g transform="translate(26, 52)">
+    <rect x="0" y="0" width="210" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">PUBLIC REPOSITORIES</text>
+    <text x="18" y="68" class="val">—</text>
+    <rect x="18" y="84" width="174" height="4" rx="2" fill="#1E293B" />
+    <rect class="sweep" x="18" y="84" width="120" height="4" rx="2" fill="url(#barGrad)" />
+  </g>
+
+  <g transform="translate(254, 52)">
+    <rect x="0" y="0" width="210" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">TOTAL STARS EARNED</text>
+    <text x="18" y="68" class="val">—</text>
+    <rect x="18" y="84" width="174" height="4" rx="2" fill="#1E293B" />
+    <rect x="18" y="84" width="130" height="4" rx="2" fill="#F59E0B" />
+  </g>
+
+  <g transform="translate(482, 52)">
+    <rect x="0" y="0" width="210" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">FOLLOWERS</text>
+    <text x="18" y="68" class="val">—</text>
+    <rect x="18" y="84" width="174" height="4" rx="2" fill="#1E293B" />
+    <rect x="18" y="84" width="145" height="4" rx="2" fill="#22C55E" />
+  </g>
+
+  <g transform="translate(710, 52)">
+    <rect x="0" y="0" width="464" height="102" rx="10" fill="#0B1324" stroke="#1E293B" stroke-width="1.2" />
+    <text x="18" y="28" class="lbl">TOP LANGUAGES &amp; STACK</text>
+    <text x="18" y="64" class="sub">Terraform • HCL • PowerShell • Python</text>
+    <text x="18" y="88" class="lbl" fill="#38BDF8">10+ Years Experience • Azure CAF • Terraform • DevSecOps</text>
+  </g>
+</svg>
