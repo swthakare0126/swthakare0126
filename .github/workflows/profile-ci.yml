@@ -1,0 +1,32 @@
+name: Profile CI & DevSecOps Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Scripts, Markers & Secret Hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile-check automation scripts
+        run: python -m py_compile .github/scripts/update_profile.py .github/scripts/test_update_profile.py
+
+      - name: Run unit tests
+        run: python -m unittest discover -s .github/scripts -p "test_*.py" -v
+
+      - name: Validate README markers & scan for secrets
+        run: python .github/scripts/update_profile.py --check
