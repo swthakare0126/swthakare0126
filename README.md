@@ -249,7 +249,11 @@ flowchart LR
 > - **Contribution Snake** ([`snake.yml`](.github/workflows/snake.yml)) — Generates dark/light contribution grid animations onto the `output` branch.
 
 <!-- START_SECTION:snake -->
-<!-- Contribution snake will appear here automatically once the 'Generate Contribution Snake' workflow has created the 'output' branch. -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/swthakare0126/swthakare0126/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/swthakare0126/swthakare0126/output/github-contribution-grid-snake.svg" />
+  <img alt="GitHub contribution snake" src="https://raw.githubusercontent.com/swthakare0126/swthakare0126/output/github-contribution-grid-snake.svg" />
+</picture>
 <!-- END_SECTION:snake -->
 
 ### 📊 Profile Metrics
@@ -263,20 +267,26 @@ flowchart LR
 <!-- START_SECTION:stats -->
 | Metric | Value |
 | :--- | :--- |
-| Public Repositories | _Pending first workflow sync_ |
-| Total Stars Earned | _Pending first workflow sync_ |
-| Followers | _Pending first workflow sync_ |
-| Primary Focus | Enterprise Azure, Terraform, DevSecOps |
+| Public Repositories | **6** |
+| Total Stars Earned | **0** |
+| Followers | **0** |
+| Top Languages | HCL |
+| Last Auto-Synced (UTC) | `2026-11-25 07:42 UTC` |
 <!-- END_SECTION:stats -->
 
 ### 📦 Featured & Recently Updated Repositories
 <!-- START_SECTION:repos -->
-_Repositories will be automatically populated on the next scheduled or manual workflow run._
+| Repository | Description | Language | Stars | Updated |
+| :--- | :--- | :--- | :-: | :--- |
+| [network-infrastructure-terraform](https://github.com/swthakare0126/network-infrastructure-terraform) | Azure infrastructure using Terraform — Resource Groups, Storage Accounts, VNets, Subnet... | `HCL` | ⭐ 0 | `2026-09-07` |
+| [CSV-Format-RG](https://github.com/swthakare0126/CSV-Format-RG) | No description provided. | `HCL` | ⭐ 0 | `2026-08-31` |
+| [azure-landing-zone-terraform](https://github.com/swthakare0126/azure-landing-zone-terraform) | Terraform-based Azure infrastructure project implementing networking, virtual machines,... | `HCL` | ⭐ 0 | `2026-08-31` |
+| [DevOps-DevSecOps](https://github.com/swthakare0126/DevOps-DevSecOps) | End-to-end DevOps and DevSecOps repository featuring Azure Cloud, Terraform, GitHub Act... | `HCL` | ⭐ 0 | `2026-06-11` |
 <!-- END_SECTION:repos -->
 
 ### 🔄 Recent GitHub Activity
 <!-- START_SECTION:activity -->
-_Recent public activity will be automatically populated on the next scheduled or manual workflow run._
+_No recent public GitHub activity found._
 <!-- END_SECTION:activity -->
 
 ---
